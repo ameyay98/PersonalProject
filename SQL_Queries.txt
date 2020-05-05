@@ -1,0 +1,154 @@
+
+To obtain segregation of data for the most popular city (high number of users) by networks (2G, 3G and 4G) for that year and shift.
+
+create temp function getData(x string, y int64) as((
+select ARRAY_AGG(struct(net,count)) as drill
+from 
+(select net, count(*) as count
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017`
+where town_name = x and extract(year from date ) = y and net is not null
+group by net)
+));
+
+With temp as (select extract(year from date) as Year,extract(hour from hour) as hr, town_name as name, 
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017` 
+where town_name is not null
+),
+temp1 as (select Year,(
+CASE
+  WHEN hr > -1 and hr < 13 THEN 1
+  WHEN hr > 12 and hr < 18  THEN 2
+  WHEN hr > 17 and hr < 24 THEN 3
+  END
+) as day,name,count(*) as count
+from temp
+group by 1,2,3
+order by 1,2),
+temp2 as (select Year,day,name, count,rank() over( partition by Year,day order by count desc) as rank
+from temp1
+order by 1,2)
+select Year,(CASE
+  WHEN day = 1 THEN 'Morning'
+  WHEN day = 2 THEN 'Afternoon'
+  WHEN day = 3 THEN 'Night'
+  END
+) as Shift,name,getData(name, Year) from temp2 where rank < 4
+---------------------------------------------------------------------------------------------------------------------------
+
+Top 3 activity for users in each postal code
+
+With temp as (select activity,postal_code, count(*) as count
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017` 
+where activity is not null
+group by activity, postal_code
+order by count desc)
+select * from
+(select activity, postal_code, count, rank() over (partition by postal_code order by count desc) as rank
+from temp)
+where rank < 3
+
+
+CREATE TEMP FUNCTION getMaxArray(apt ARRAY<STRUCT<x string,y int64>>)
+returns struct<x string, y int64>
+language js as """
+  var j = apt[0];
+  for(var i =1;i < apt.length; i++)
+   {
+       if(apt[i].y > j.y){
+        j = apt[i];
+      }
+    
+   }
+  return j
+""";
+---------------------------------------------------------------------------------------------------------------------------
+
+Active user's count for the perticular provider for the top city(With Max number of Active Users) at that time and year
+
+create temp function getData(x string, y int64) as((
+select getMaxArray(ARRAY_AGG(struct(gps,count))) 
+from 
+(select provider as gps , count(*) as count
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017`
+where town_name = x and extract(year from date ) = y and net is not null 
+group by provider)
+));
+
+With temp as (select extract(year from date) as Year,extract(hour from hour) as hr, town_name as name, 
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017` 
+where town_name is not null
+),
+temp1 as (select Year,(
+CASE
+  WHEN hr > -1 and hr < 13 THEN 1
+  WHEN hr > 12 and hr < 18  THEN 2
+  WHEN hr > 17 and hr < 24 THEN 3
+  END
+) as day,name,count(*) as count
+from temp
+group by 1,2,3
+order by 1,2),
+temp2 as (select Year,day,name, count,rank() over( partition by Year,day order by count desc) as rank
+from temp1
+order by 1,2)
+select Year,(CASE
+  WHEN day = 1 THEN 'Morning'
+  WHEN day = 2 THEN 'Afternoon'
+  WHEN day = 3 THEN 'Night'
+  END
+) as Shift,name,getData(name, Year) from temp2 where rank < 4
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+Users count trend for each month for all years
+
+With temp as (select EXTRACT(YEAR from date) as year, EXTRACT(MONTH from date) as month, town_name as name
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017` 
+where town_name is not null
+),
+temp1 as (select year,month, count(*) as count
+from temp
+group by 1,2
+having count(*) > 100 
+order by 1,2)
+select year as Year,
+(
+  CASE
+  WHEN month = 1 THEN 'January'
+  WHEN month = 2 THEN 'February'
+  WHEN month = 3 THEN 'March'
+  WHEN month = 4 THEN 'April'
+  WHEN month = 5 THEN 'May'
+  WHEN month = 6 THEN 'June'
+  WHEN month = 7 THEN 'July'
+  WHEN month = 8 THEN 'August'
+  WHEN month = 9 THEN 'Spetember'
+  WHEN month = 10 THEN 'October'
+  WHEN month = 11 THEN 'November'
+  WHEN month = 12 THEN 'December'
+  END
+) as Month, count
+from temp1
+
+---------------------------------------------------------------------------------------------------------------------------
+ Precision range for users
+
+With temp as (select signal, count(*) as count
+from `bigquery-public-data.catalonian_mobile_coverage.mobile_data_2015_2017` 
+group by 1
+order by 1)
+select (Case
+when signal>-1 and signal < 11 then '0-10'
+when signal>10 and signal < 21 then '11-20'
+when signal>20 and signal < 31 then '21-30'
+when signal>30 and signal < 41 then '31-40'
+when signal>40 and signal < 51 then '41-50'
+when signal>50 and signal < 61 then '51-60'
+when signal>60 and signal < 71 then '61-70'
+when signal>70 and signal < 81 then '71-80'
+when signal>80 then '81-onwards' end) as region,
+sum(count) as sum
+from temp
+group by 1
+
