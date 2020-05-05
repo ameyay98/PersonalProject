@@ -112,8 +112,8 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 
 There are many useful as well as optimization features which is provided by Big Query some those are below:
 
--BigQuery helps in doing some complex queries easily using UDF's , struct, etc.
--BigQuery helps in  calculating metrics/stats/aggregates over a large amount of data easily beacause of its orientation for storing the data.
--User-friendly Web- UI for querying and data loading.
--Easy way to integrate with Google Data Studio  as well as Google BI engine to visualize the data .
+- BigQuery helps in doing some complex queries easily using UDF's , struct, etc.
+- BigQuery helps in  calculating metrics/stats/aggregates over a large amount of data easily beacause of its orientation for storing the data.
+- User-friendly Web- UI for querying and data loading.
+- Easy way to integrate with Google Data Studio  as well as Google BI engine to visualize the data .
 
