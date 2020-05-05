@@ -1,14 +1,14 @@
-## **Bold** CATALONIA CELL COVERAGE (2015 - 2017)
+# CATALONIA CELL COVERAGE (2015 - 2017)
 
 
 
-### Motivation
+## Motivation
 
 The dataset I have chosen  is the Government of Catalonia released data about cell coverage which shows the data regarding the service provider, operator, network, location, speed (upload and download) and many more things about any device at a particular day and time at a certain location. So, it made me wonder that i can use the data for some machine learning projects, in which i can use this data for predictions like which regions requires more towers if there are more congestions in the network, also it can be used by government to monitor any suspicious activities by frequential data about specific device. Also, the same data can be used to visualize different things like different regions and the number of population in that region using which operator and network and show some analytics about the popular networks and many more things. Data Science enthusiasts are always looking for something useful in the data so that it can useful for some visualization to show some discrepancy or to summarize different aspects about the data. I being a machine learning lover, love to use dat to predict something as it helps to get something out of data and helps with somethings which can ease the effort of doing it manually. This data helps in predicting many different things of which i have described some of them above, it only depends how we transform the data accordingly and pass it onto a machine learning model with pre-processing data earlier.
 
 
 
-### About Data 
+## About Data 
 
 The Data is available as google provided public dataset. But it can be found on the official website with recently updated data here. There are different data sets according to the region you are in, on google public dataset. To get the recent dataset, it can be downloaded from here or can accessed using the api provided by them.
 The following description is from the developers only: 
