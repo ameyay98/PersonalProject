@@ -56,7 +56,7 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 
 ## Analytics
 
-<iframe width="600" height="1000" src="https://datastudio.google.com/embed/reporting/f5b9bd2a-7e31-45cd-8cd6-cfb6d37c0099/page/5ukOB" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe width="800" height="1000" src="https://datastudio.google.com/embed/reporting/f5b9bd2a-7e31-45cd-8cd6-cfb6d37c0099/page/5ukOB" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 ### Summary
 
@@ -96,6 +96,17 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 1. This cell coverage data can be used by many domains to get insights about user activities and helps in determining some useful data from it.
 2. If the data was enough, then more things can be done with it which includes transformation of the data for machine learning models which can be used to predict as well as classify things like prediction of revenues for operator for that region depending on the user activity and classifying regions into zones for development so government can have campaingns.
 3. Catalonia data includes all things like operator, networks ,etc. It can be used by government to gain insights about networks and to set some regulations and many more things.
+
+## Query Execution Details :
+1.**Active user's count for the perticular provider for the top city(With Max number of Active Users) at that time and year** 
+
+![Image](Screen Shot 2020-05-04 at 11.49.57 PM.png)
+![Image](Screen Shot 2020-05-04 at 11.50.05 PM.png)
+
+2.**Active user's  count for network for top city (High Active Users)**
+![Image](Screen Shot 2020-05-04 at 11.56.08 PM.png)
+![Image](Screen Shot 2020-05-04 at 11.56.16 PM.png)
+
 
 ## Why Big Query? 
 
