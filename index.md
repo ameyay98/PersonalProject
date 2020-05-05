@@ -56,7 +56,7 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 
 ## Analytics
 
-<iframe width="800" height="1000" src="https://datastudio.google.com/embed/reporting/f5b9bd2a-7e31-45cd-8cd6-cfb6d37c0099/page/5ukOB" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe width="800" height="1500" src="https://datastudio.google.com/embed/reporting/f5b9bd2a-7e31-45cd-8cd6-cfb6d37c0099/page/5ukOB" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 ### Summary
 
