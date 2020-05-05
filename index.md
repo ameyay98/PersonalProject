@@ -76,7 +76,7 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 
 - **Active user's  count for network for top city (High Active Users)** gives the User Count for the Top City for that shift and for that Year. It helps to identify which city has the most congession and when so that at that time some automation can be done to ease the effort.
 
-- **Active user's count for the perticular provider for the top city(With Max number of Active Users) at that time and year** helps to summarize the which particular provider was being accessed the most and helps if finding out multiple different cheap ways to provide if certain provider takes too much load.
+- **Active user's count for the perticular provider for the top city(With Max number of Active Users) at that time and year** helps to summarize the which particular provider was being accessed the most and helps if finding out multiple different cheap ways to provide if certain provider takes too much load. The following shows the query results : 
 
 ![Image](Screen Shot 2020-05-04 at 11.22.17 PM.png)
 
@@ -84,40 +84,25 @@ Table mobile_data_2015_2017 will be used for the analysis part and which further
 ## Challenges
 
 1.Skewed Data: The data was skewed, so my goals was too transform and anlyze the data so that it will be helpful for providing insights which can be used to train machine learning models for some prediction or classification but the data was skewed which lead to think more as i cannot find a concrete evidence with such less and skewed data.
-2. Data From public dataset :  I used the public dataset provided by google, there was not mu
-3.Missing field values: Data for a mode of the payment was inconsistent since for few payment modes I couldn't find the data from 2017-2019. There might be a case that those modes may never be used but I felt they had little discrepancies. I had to merge such data into the category as "other" to minimize the impact on my analysis.
-4. Data Studio issue with Drilling Down : Looks like Google data studio is not able to handle data which is aggregated by array aggregators so I had to put screenshots of the outcome into the charts instead of some fancy charts which could have been better in visualization.
+
+2. Data From public dataset :  I used the public dataset provided by google, there was not much flexibilty but helped to get good insights about the data and helps in finding relation between the data. It has very much less data, if data was huge it would have been used and transformed for some machine learning model and more visualization.
+
+3.Missing field values: Data for upload speed and download speed was null, so if the was there then it would have been grate to again gain more insights about the data.
+
+4. Data Studio issue with Drilling Down and aggregators : Looks like Google data studio is not able to handle data which is aggregated by array aggregators and also has 2 level drilling only. I have screenshots and put it there as it was not able to show in any form of charts or table.
+
 ## Future Work
 
-
+1. This cell coverage data can be used by many domains to get insights about user activities and helps in determining some useful data from it.
+2. If the data was enough, then more things can be done with it which includes transformation of the data for machine learning models which can be used to predict as well as classify things like prediction of revenues for operator for that region depending on the user activity and classifying regions into zones for development so government can have campaingns.
+3. Catalonia data includes all things like operator, networks ,etc. It can be used by government to gain insights about networks and to set some regulations and many more things.
 
 ## Why Big Query? 
 
-```markdown
-Syntax highlighted code block
+There are many useful as well as optimization features which is provided by Big Query some those are below:
 
-# Header 1
+-BigQuery helps in doing some complex queries easily using UDF's , struct, etc.
+-BigQuery helps in  calculating metrics/stats/aggregates over a large amount of data easily beacause of its orientation for storing the data.
+-User-friendly Web- UI for querying and data loading.
+-Easy way to integrate with Google Data Studio  as well as Google BI engine to visualize the data .
 
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ameyay98/PersonalProject/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
