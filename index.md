@@ -1,13 +1,11 @@
-## CATALONIA CELL COVERAGE (2015 - 2017)
+## **Bold** CATALONIA CELL COVERAGE (2015 - 2017)
 
-You can use the [editor on GitHub](https://github.com/ameyay98/PersonalProject/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-#Motivation
-### Markdown
+### Motivation
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The dataset I have chosen  is the Government of Catalonia released data about cell coverage which shows the data regarding the service provider, operator, network, location, speed (upload and download) and many more things about any device at a particular day and time at a certain location. So, it made me wonder that i can use the data for some machine learning projects, in which i can use this data for predictions like which regions requires more towers if there are more congestions in the network, also it can be used by government to monitor any suspicious activities by frequential data about specific device. Also, the same data can be used to visualize different things like different regions and the number of population in that region using which operator and network and show some analytics about the popular networks and many more things. Data Science enthusiasts are always looking for something useful in the data so that it can useful for some visualization to show some discrepancy or to summarize different aspects about the data. I being a machine learning lover, love to use dat to predict something as it helps to get something out of data and helps with somethings which can ease the effort of doing it manually. This data helps in predicting many different things of which i have described some of them above, it only depends how we transform the data accordingly and pass it onto a machine learning model with pre-processing data earlier.
+
 
 ```markdown
 Syntax highlighted code block
